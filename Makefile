@@ -1,26 +1,32 @@
-SRCS	=	ft_printf.c / functions.c
+SRCS	= ft_printf.c \
+		ft_print_hexa.c \
+		fonctions.c
 
-NAME	=	libftprintf.a
+NAME	= libftprintf.a
 
-GCC		=	gcc -Wall -Wextra -Werror
+CC		= gcc
 
-RM		=	rm -f
+FLAGS	= -Wall -Wextra -Werror
 
-OBJS	=	$(SRCS:.c=.o)
+RM		= rm -f
 
-$(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+OBJS	= $(SRCS:.c=.o)
 
-.c.o:		$(GCC) $(CFLAGS) -c $< -o $(<:.c=.o)
+.c.o:
+	$(CC) $(FLAGS) -c $< -o $@
 
-all:		$(NAME)
+all: $(NAME)
 
-clean:		$(RM) $(OBJS)
+$(NAME): $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
 
-fclean:		clean
-			$(RM) $(OBJS)
+clean:
+	$(RM) $(OBJS)
 
-re:			fclean $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-.SHORTCUT:	all clean fclean re
+re: fclean all
+
+.PHONY: all clean fclean re
 
