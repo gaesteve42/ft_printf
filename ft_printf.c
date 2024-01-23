@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:03:55 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/23 18:36:14 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:58:47 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-			count += write(1, &str[i], 1);
+			count += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(arg);
