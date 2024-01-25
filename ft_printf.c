@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:03:55 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/23 18:58:47 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/25 08:36:32 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,30 @@ int	ft_specifier(char c)
 	return (0);
 }
 
-int	print_specifier(char specifier, va_list arg)
+int	ft_print_specifier(char specifier, va_list arg)
 {
+	int	count;
+
+	count = 0;
 	if (specifier == 'c')
-		return (ft_putchar(va_arg(arg, int)));
+		count += ft_print_char(va_arg(arg, int));
 	if (specifier == 's')
-		return (ft_putstr(va_arg(arg, char *)));
+		count += ft_print_str(va_arg(arg, char *));
 	if (specifier == 'p')
-		return (ft_add(va_arg(arg, void *)));
+		count += ft_print_ptr(va_arg(arg, void *));
 	if (specifier == 'd')
-		return (ft_putnbr(va_arg(arg, int)));
+		count += ft_print_nbr(va_arg(arg, int), 10);
 	if (specifier == 'i')
-		return (ft_putnbr(va_arg(arg, int)));
+		count += ft_print_nbr(va_arg(arg, int), 10);
 	if (specifier == 'u')
-		return (ft_unsigned(va_arg(arg, unsigned int)));
+		count += ft_print_nbr(va_arg(arg, unsigned int), 10);
 	if (specifier == 'x')
-		return (ft_print_lower_digit((long)va_arg(arg, unsigned int), 16));
+		count += ft_print_min((long)va_arg(arg, unsigned int), 16);
 	if (specifier == 'X')
-		return (ft_print_upper_digit((long)va_arg(arg, unsigned int), 16));
+		count += ft_print_maj((long)va_arg(arg, unsigned int), 16);
 	if (specifier == '%')
-		return (ft_putchar('%'));
-	return (0);
+		count += ft_print_char('%');
+	return (count);
 }
 
 int	ft_printf(const char *str, ...)
@@ -64,11 +67,11 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%' && str[i + 1] && ft_specifier(str[i + 1]))
 		{
-			count += print_specifier(str[i + 1], arg);
+			count += ft_print_specifier(str[i + 1], arg);
 			i++;
 		}
 		else
-			count += ft_putchar(str[i]);
+			count += ft_print_char(str[i]);
 		i++;
 	}
 	va_end(arg);

@@ -6,13 +6,13 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:15:21 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/23 18:34:45 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/25 08:36:06 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_upper_digit(long n, int base)
+int	ft_print_maj(long n, int base)
 {
 	int		count;
 	char	*hexa;
@@ -21,19 +21,19 @@ int	ft_print_upper_digit(long n, int base)
 	hexa = "0123456789ABCDEF";
 	if (n < 0)
 	{
-		ft_putchar('-');
-		return (count + ft_print_upper_digit(-n, base));
+		ft_print_char('-');
+		return (count + ft_print_maj(-n, base));
 	}
 	else if (n < base)
-		return (ft_putchar(hexa[n]));
+		return (ft_print_char(hexa[n]));
 	else
 	{
-		count = ft_print_upper_digit(n / base, base);
-		return (count + ft_print_upper_digit(n % base, base));
+		count = ft_print_maj(n / base, base);
+		return (count + ft_print_maj(n % 16, base));
 	}
 }
 
-int	ft_print_lower_digit(long n, int base)
+int	ft_print_min(long n, int base)
 {
 	int		count;
 	char	*hexa;
@@ -42,14 +42,14 @@ int	ft_print_lower_digit(long n, int base)
 	hexa = "0123456789abcdef";
 	if (n < 0)
 	{
-		ft_putchar('-');
-		return (count + ft_print_lower_digit(-n, base));
+		ft_print_char('-');
+		return (count + ft_print_min(-n, base));
 	}
 	else if (n < base)
-		return (count + ft_putchar(hexa[n]));
+		return (count + ft_print_char(hexa[n]));
 	else
 	{
-		count = ft_print_lower_digit(n / base, base);
-		return (count + ft_print_lower_digit(n % base, base));
+		count = ft_print_min(n / base, base);
+		return (count + ft_print_min(n % base, base));
 	}
 }
