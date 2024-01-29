@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:48:30 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/29 14:36:11 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:38:54 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ int	ft_print_hexa(long n, int base)
 	if (n < 0)
 	{
 		ft_print_char('-');
-		return (count + ft_print_maj(-n, base));
+		return (count + ft_print_hexa(-n, base));
 	}
 	else if (n < base)
 		return (ft_print_char(hexa[n]));
 	else
 	{
-		count = ft_print_maj(n / base, base);
-		return (count + ft_print_maj(n % 16, base));
+		count = ft_print_hexa(n / base, base);
+		return (count + ft_print_hexa(n % 16, base));
 	}
 }
 
