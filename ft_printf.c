@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:03:55 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/29 14:44:32 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:40:44 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	ft_printf(const char *str, ...)
 	va_end(arg);
 	return (count);
 }
+
 #include <stdio.h>
 int	main()
 {
