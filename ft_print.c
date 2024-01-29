@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:48:30 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/29 16:24:17 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:59:09 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,9 @@ int	ft_print_str(char *str)
 
 	i = 0;
 	count = 0;
-	if (!str)
+	if (str == NULL)
 	{
-		write (1, "(null)", 6);
-		count = 6;
-		return (count);
+		return (write(1, "(null)", 6));
 	}
 	while (str[i])
 	{
@@ -45,16 +43,16 @@ int	ft_print_str(char *str)
 int	ft_print_min(long n, int base)
 {
 	int		count;
-	char	*base16;
+	char	*tab;
 
-	base16 = "0123456789abcdef";
+	tab = "0123456789abcdef";
 	if (n < 0)
 	{
 		ft_print_char('-');
 		return (ft_print_min(-n, base) + 1);
 	}
 	else if (n < base)
-		return (ft_print_char(base16[n]));
+		return (ft_print_char(tab[n]));
 	else
 	{
 		count = ft_print_min(n / base, base);
@@ -65,17 +63,17 @@ int	ft_print_min(long n, int base)
 int	ft_print_maj(long n, int base)
 {
 	int		count;
-	char	*hexa;
+	char	*tab;
 
 	count = 0;
-	hexa = "0123456789ABCDEF";
+	tab = "0123456789ABCDEF";
 	if (n < 0)
 	{
 		ft_print_char('-');
 		return (count + ft_print_maj(-n, base));
 	}
 	else if (n < base)
-		return (ft_print_char(hexa[n]));
+		return (ft_print_char(tab[n]));
 	else
 	{
 		count = ft_print_maj(n / base, base);

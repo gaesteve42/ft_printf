@@ -6,77 +6,62 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:03:55 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/29 16:24:13 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:59:31 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_specifier(char c)
-{
-	const char	*specifier;
-	int			i;
-
-	i = 0;
-	specifier = "cspdiuxX%";
-	while (specifier[i])
-	{
-		if (c == specifier[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	ft_print_specifier(char specifier, va_list arg)
+int	ft_print_specifier(char specifier, va_list args)
 {
 	int	count;
 
 	count = 0;
 	if (specifier == 'c')
-		return (ft_print_char(va_arg(arg, int)));
-	if (specifier == 's')
-		count += ft_print_str(va_arg(arg, char *));
-	if (specifier == 'p')
-		count += ft_print_ptr(va_arg(arg, void *));
-	if (specifier == 'd')
-		count += ft_print_min(va_arg(arg, int), 10);
-	if (specifier == 'i')
-		count += ft_print_min(va_arg(arg, int), 10);
-	if (specifier == 'u')
-		count += ft_print_min(va_arg(arg, unsigned int), 10);
-	if (specifier == 'x')
-		count += ft_print_min((long)va_arg(arg, unsigned int), 16);
-	if (specifier == 'X')
-		count += ft_print_maj((long)va_arg(arg, unsigned int), 16);
-	if (specifier == '%')
+		return (ft_print_char(va_arg(args, int)));
+	else if (specifier == 's')
+		count += ft_print_str(va_arg(args, char *));
+	else if (specifier == 'p')
+		count += ft_print_ptr(va_arg(args, void *));
+	else if (specifier == 'd')
+		count += ft_print_min(va_arg(args, int), 10);
+	else if (specifier == 'i')
+		count += ft_print_min(va_arg(args, int), 10);
+	else if (specifier == 'u')
+		count += ft_print_min(va_arg(args, unsigned int), 10);
+	else if (specifier == 'x')
+		count += ft_print_min((long)va_arg(args, unsigned int), 16);
+	else if (specifier == 'X')
+		count += ft_print_maj((long)va_arg(args, unsigned int), 16);
+	else if (specifier == '%')
 		count += ft_print_char('%');
 	return (count);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	arg;
-	int		i;
+	va_list	args;
 	int		count;
+	int		i;
 
 	i = 0;
 	count = 0;
-	va_start(arg, str);
+	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%' && str[i + 1] && ft_specifier(str[i + 1]))
+		if (str[i] == '%')
 		{
-			count += ft_print_specifier(str[i + 1], arg);
 			i++;
+			count += ft_print_specifier(str[i], args);
 		}
 		else
 			count += ft_print_char(str[i]);
 		i++;
 	}
-	va_end(arg);
+	va_end(args);
 	return (count);
 }
+
 /*
 #include <stdio.h>
 int	main()
@@ -89,7 +74,7 @@ int	main()
 	char *teststr;
 	unsigned int	testu;
 
-	testint = 142;
+	testint = 17;
 	test_neg_int = -2147483648;
 	testhexa = 1968;
 	testhexaup = 1968;
@@ -132,4 +117,5 @@ int	main()
 	count += ft_printf("%p\n", 0);
 	printf("%d\n", count);
 	count = 0;
-}*/
+}
+*/

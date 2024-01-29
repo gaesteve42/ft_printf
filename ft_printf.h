@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:26:56 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/29 16:24:19 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:59:38 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdarg.h>
+# include <limits.h>
 
 int	ft_printf(const char *str, ...);
+
+int	ft_print_specifier(char specifier, va_list arg);
 
 int	ft_print_char(int c);
 
