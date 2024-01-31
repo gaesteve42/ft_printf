@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:03:55 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/31 10:35:53 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:36:35 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ int	ft_print_specifier(char specifier, va_list args)
 	else if (specifier == 'p')
 		count += ft_print_ptr(va_arg(args, void *));
 	else if (specifier == 'd')
-		count += ft_print_min(va_arg(args, int), 10);
+		count += ft_print_hexa_lower(va_arg(args, int), 10);
 	else if (specifier == 'i')
-		count += ft_print_min(va_arg(args, int), 10);
+		count += ft_print_hexa_lower(va_arg(args, int), 10);
 	else if (specifier == 'u')
-		count += ft_print_min(va_arg(args, unsigned int), 10);
+		count += ft_print_hexa_lower(va_arg(args, unsigned int), 10);
 	else if (specifier == 'x')
-		count += ft_print_min((long)va_arg(args, unsigned int), 16);
+		count += ft_print_hexa_lower((long)va_arg(args, unsigned int), 16);
 	else if (specifier == 'X')
-		count += ft_print_maj((long)va_arg(args, unsigned int), 16);
+		count += ft_print_hexa_upper((long)va_arg(args, unsigned int), 16);
 	else if (specifier == '%')
 		count += ft_print_char('%');
 	return (count);

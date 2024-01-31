@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:48:30 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/31 10:37:45 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:36:32 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,61 +40,50 @@ int	ft_print_str(char *str)
 	return (count);
 }
 
-int	ft_print_min(long n, int base)
+int	ft_print_hexa_lower(long n, int base)
 {
 	int		count;
-	char	*tab;
+	char	*base16;
 
-	tab = "0123456789abcdef";
+	base16 = "0123456789abcdef";
 	if (n < 0)
 	{
 		ft_print_char('-');
-		return (ft_print_min(-n, base) + 1);
+		return (ft_print_hexa_lower(-n, base) + 1);
 	}
 	else if (n < base)
-		return (ft_print_char(tab[n]));
+		return (ft_print_char(base16[n]));
 	else
 	{
-		count = ft_print_min(n / base, base);
-		return (count + ft_print_min(n % base, base));
+		count = ft_print_hexa_lower(n / base, base);
+		return (count + ft_print_hexa_lower(n % base, base));
 	}
 }
 
-int	ft_print_maj(long n, int base)
+int	ft_print_hexa_upper(long n, int base)
 {
 	int		count;
-	char	*tab;
+	char	*base16;
 
 	count = 0;
-	tab = "0123456789ABCDEF";
+	base16 = "0123456789ABCDEF";
 	if (n < 0)
 	{
 		ft_print_char('-');
-		return (count + ft_print_maj(-n, base));
+		return (count + ft_print_hexa_upper(-n, base));
 	}
 	else if (n < base)
-		return (ft_print_char(tab[n]));
+		return (ft_print_char(base16[n]));
 	else
 	{
-		count = ft_print_maj(n / base, base);
-		return (count + ft_print_maj(n % 16, base));
+		count = ft_print_hexa_upper(n / base, base);
+		return (count + print_hexa_upper(n % base, base));
 	}
 }
 
-int	ft_print_ptr(void *ptr) // MODIFIER CETTE FONCTION, LA RENDRE INDEPENDANTE
+int	ft_print_ptr(void *ptr) // MODIFIER CETTE FONCTION.
 {
 	int	count;
+	int	i;
 
-	count = 0;
-	if (ptr == NULL)
-	{
-		count += ft_print_str("0x0");
-		return (count);
-	}
-	else
-	{
-		count += ft_print_str("0x");
-		count += ft_print_min((unsigned long)ptr, 16);
-		return (count);
-	}
 }
