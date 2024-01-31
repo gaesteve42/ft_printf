@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:48:30 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/31 11:36:32 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:15:58 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,31 @@ int	ft_print_hexa_upper(long n, int base)
 	else
 	{
 		count = ft_print_hexa_upper(n / base, base);
-		return (count + print_hexa_upper(n % base, base));
+		return (count + ft_print_hexa_upper(n % base, base));
 	}
 }
 
-int	ft_print_ptr(void *ptr) // MODIFIER CETTE FONCTION.
+int	ft_print_ptr(unsigned long int *n, char *base)
 {
-	int	count;
-	int	i;
+	int					i;
+	int					count;
+	unsigned long int	number;
+	char				tab[16];
 
+	if (!n)
+		return (ft_print_str("(nil)"));
+	i = 0;
+	count = 0;
+	number = (size_t) n;
+	count = count + ft_print_str("0x");
+	while (number > 0)
+	{
+		tab[i++] = base[number % 16];
+		number /= 16;
+	}
+	while (i)
+	{
+		count = count + ft_print_char(tab[--i]);
+	}
+	return (count);
 }

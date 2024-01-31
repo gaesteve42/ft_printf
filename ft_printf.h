@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:26:56 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/31 11:36:38 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:17:07 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	ft_print_hexa_lower(long n, int base);
 
 int	ft_print_hexa_upper(long n, int base);
 
-int	ft_print_ptr(void *ptr);
+int	ft_print_ptr(unsigned long int *n, char *base);
 
 #endif

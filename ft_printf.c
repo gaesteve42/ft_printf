@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:03:55 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/31 11:36:35 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:16:03 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_print_specifier(char specifier, va_list args)
 	else if (specifier == 's')
 		count += ft_print_str(va_arg(args, char *));
 	else if (specifier == 'p')
-		count += ft_print_ptr(va_arg(args, void *));
+		count += ft_print_ptr(va_arg(args, void *), "0123456789abcdef");
 	else if (specifier == 'd')
 		count += ft_print_hexa_lower(va_arg(args, int), 10);
 	else if (specifier == 'i')
