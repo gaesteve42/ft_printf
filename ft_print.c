@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:48:30 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/01/29 18:21:58 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:37:45 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_print_str(char *str)
 	return (count);
 }
 
-int	ft_print_min(long n, int base) // MODIFIER CES FONCTIONS.
+int	ft_print_min(long n, int base)
 {
 	int		count;
 	char	*tab;
@@ -60,8 +60,8 @@ int	ft_print_min(long n, int base) // MODIFIER CES FONCTIONS.
 	}
 }
 
-int	ft_print_maj(long n, int base) // MODIFIER CES FONCTIONS.
-{							// 1 fonction pour hexa, separer les utilisations.
+int	ft_print_maj(long n, int base)
+{
 	int		count;
 	char	*tab;
 
@@ -81,7 +81,7 @@ int	ft_print_maj(long n, int base) // MODIFIER CES FONCTIONS.
 	}
 }
 
-int	ft_print_ptr(void *ptr) // seule fonction avec erreurs.
+int	ft_print_ptr(void *ptr) // MODIFIER CETTE FONCTION, LA RENDRE INDEPENDANTE
 {
 	int	count;
 
@@ -94,7 +94,7 @@ int	ft_print_ptr(void *ptr) // seule fonction avec erreurs.
 	else
 	{
 		count += ft_print_str("0x");
-		count += ft_print_min((unsigned long)ptr, 16); // erreur venant d ici ?
+		count += ft_print_min((unsigned long)ptr, 16);
 		return (count);
 	}
 }
