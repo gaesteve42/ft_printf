@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:03:55 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/02/01 16:18:50 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:45:33 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,38 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
+/*
+int	main()
+{
+	int			integer;
+	int			negative_integer;
+	int			hexa;
+	int			hexa_upper;
+	char		character;
+	char		*string;
+	unsigned int	ptr;
+
+	integer = 15925;
+	negative_integer = -2147483648;
+	hexa = 1968;
+	hexa_upper = 1560;
+	character = 'c';
+	string = "123 test 456 test 789 test";
+	ptr = 3546;
+
+	ft_printf("mon test en int : %d\n", integer);
+	printf("vrai test en int : %d\n\n", integer);
+	ft_printf("mon test en int negatif : %d\n", negative_integer);
+	printf("vrai test en int negatif : %d\n\n", negative_integer);
+	ft_printf("mon test en char : %c\n", character);
+    printf("vrai test en char : %c\n\n", character);
+    ft_printf("mon test en string : %s\n", string);
+    printf("vrai test en string : %s\n\n", string);
+ 	ft_printf("mon test en hexa : %x\n", hexa);
+    printf("vrai test en hexa : %x\n\n", hexa);
+    ft_printf("mon test en hexa upper: %X\n", hexa_upper);
+    printf("vrai test en hexa upper : %X\n\n", hexa_upper);
+    ft_printf("mon test en unsigned : %u\n", ptr);
+    printf("vrai test en unsigned : %u\n\n", ptr);
+}
+*/
