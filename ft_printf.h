@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:26:56 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/02/01 16:16:44 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:18:45 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_print_char(int c);
 
 int	ft_print_str(char *str);
 
-int	ft_print_hexa_lower(long n, int base);
+int	ft_print_hexa(long n, int base);
 
 int	ft_print_hexa_upper(long n, int base);
 
