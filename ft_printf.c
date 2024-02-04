@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:03:55 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/02/01 16:45:33 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/02/04 18:04:16 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	ft_print_specifier(char specifier, va_list args)
 	else if (specifier == 'p')
 		count += ft_print_ptr(va_arg(args, void *), "0123456789abcdef");
 	else if (specifier == 'd')
-		count += ft_print_hexa(va_arg(args, int), 10);
+		count += ft_print_hexa_lower(va_arg(args, int), 10);
 	else if (specifier == 'i')
-		count += ft_print_hexa(va_arg(args, int), 10);
+		count += ft_print_hexa_lower(va_arg(args, int), 10);
 	else if (specifier == 'u')
-		count += ft_print_hexa(va_arg(args, unsigned int), 10);
+		count += ft_print_hexa_lower(va_arg(args, unsigned int), 10);
 	else if (specifier == 'x')
-		count += ft_print_hexa((long)va_arg(args, unsigned int), 16);
+		count += ft_print_hexa_lower((long)va_arg(args, unsigned int), 16);
 	else if (specifier == 'X')
 		count += ft_print_hexa_upper((long)va_arg(args, unsigned int), 16);
 	else if (specifier == '%')
@@ -88,8 +88,8 @@ int	main()
     printf("vrai test en char : %c\n\n", character);
     ft_printf("mon test en string : %s\n", string);
     printf("vrai test en string : %s\n\n", string);
- 	ft_printf("mon test en hexa : %x\n", hexa);
-    printf("vrai test en hexa : %x\n\n", hexa);
+ 	ft_printf("mon test en hexa lower : %x\n", hexa);
+    printf("vrai test en hexa lower : %x\n\n", hexa);
     ft_printf("mon test en hexa upper: %X\n", hexa_upper);
     printf("vrai test en hexa upper : %X\n\n", hexa_upper);
     ft_printf("mon test en unsigned : %u\n", ptr);
