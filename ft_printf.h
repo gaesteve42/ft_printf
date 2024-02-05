@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:26:56 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/02/04 18:34:01 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:43:24 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	ft_print_str(char *str);/* %s */
 
 int	ft_print_hexa_lower(long n, int base);/* %d - %i - %u - %x */
 // print the hexa representation of a given integer in lowercase.
+// Also used for every Decimal %, to make the code simplier.
 
 int	ft_print_hexa_upper(long n, int base);/* %X */
 // print the hexa representation of a given integer in uppercase.
