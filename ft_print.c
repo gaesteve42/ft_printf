@@ -6,7 +6,7 @@
 /*   By: gaesteve <gaesteve@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:48:30 by gaesteve          #+#    #+#             */
-/*   Updated: 2024/02/05 13:21:48 by gaesteve         ###   ########.fr       */
+/*   Updated: 2024/03/29 17:17:25 by gaesteve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,15 +106,3 @@ int	ft_print_ptr(unsigned long int *ptr, char *base)
 	}
 	return (count);
 }
-/*
-ft_print_ptr function :
-
-L.96 - //(size_t) is used to convert the pointer value ptr to the type size_t
-in order to ensure proper handling and alignment of memory-related operations.
-
-L.97 - //Print "0x" prefix for hexa numbers.
-
-L.98 - //Convert 'number' to hexa, store each digit in the 'tab' array.
-
-L.103 - //Print each digit stored in the 'tab' array in reverse order.
-*/
